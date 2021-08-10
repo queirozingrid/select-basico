@@ -12,7 +12,6 @@ public class Select {
 
         if(validacao.validaEstado(estado)){
             System.out.println("***** PESSOAS DESSE ESTADO *****");
-
             for (Pessoa p : pessoas) {
                 if(p.getEstado().equals(estado)){
                     System.out.println(p.getNome());

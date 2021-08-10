@@ -1,5 +1,4 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Validacao {
 
@@ -25,16 +24,29 @@ public class Validacao {
     }
 
     public boolean validaEstado(String estado){
+        List<String> strings = new ArrayList<>();
+        strings = Arrays.asList("AC", "AL", "AP", "AM", "BA", "CE", "DF",
+                "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI",
+                "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO");
+
+        estado = estado.toUpperCase();
+
         int contNum = 0;
 
         if(estado.length()!= 2){
             System.out.println("DIGITE APENAS A SIGLA (DOIS DIGITOS)");
             return false;
         }
-        for (int i = 0; i < estado.length(); i++) {
-            if(Character.isDigit(estado.charAt(i)) || !Character.isAlphabetic(estado.charAt(i))) {
-                contNum++;
+        else if(strings.contains(estado)){
+            for (int i = 0; i < estado.length(); i++) {
+                if(Character.isDigit(estado.charAt(i)) || !Character.isAlphabetic(estado.charAt(i))) {
+                    contNum++;
+                }
             }
+        }
+        else {
+            System.out.println("Estado inválido");
+            return false;
         }
         if(contNum>0){
             System.out.println("Digite apenas letras!!");
@@ -43,6 +55,7 @@ public class Validacao {
         else {
             return true;
         }
+
     }
 
     public boolean validaNome(Pessoa pessoa){

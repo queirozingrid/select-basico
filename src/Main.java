@@ -9,7 +9,6 @@ public class Main {
         String estado;
 
         boolean sair = true;
-        int idade;
 
         Validacao validacao = new Validacao();
 
